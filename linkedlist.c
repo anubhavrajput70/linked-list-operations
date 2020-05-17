@@ -1,3 +1,4 @@
+//singly linked list operations
 #include<stdio.h>
 #include<stdlib.h>
 void append();
