@@ -173,7 +173,7 @@ ptr->link=temp;
 void at_pos()
 {
 struct node *temp,*ptr;
-int loc,i=1;
+int loc,i=0;
 temp=(struct node*)malloc(sizeof(struct node));
 printf("enter the location after which you want insert the node=");
 scanf("%d",&loc);
@@ -218,20 +218,30 @@ temp=temp->link;
 ptr->link=NULL;
 free(temp);
 }
+
+
 void del_at_pos()
 {
-struct node *temp,*ptr;
-int loc,i=1;
+struct node *temp,*ptr1,*ptr;
+int loc,i=0;
 printf("enter the location you want to delete=");
 scanf("%d",&loc);
 if(loc>length())
 {
 printf("invalid location");
 }
+if(loc==0)
+{
+ptr1=root;
+root=ptr1->link;
+ptr1->link=NULL;
+free(ptr1);
+}
 else
 {
+i++;
 temp=root;
-while(i<loc-1)
+while(i!=loc)
 {
 temp=temp->link;
 i++;
@@ -289,3 +299,4 @@ else
 printf("not found");
 }
 }
+
