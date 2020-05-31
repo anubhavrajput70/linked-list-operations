@@ -12,6 +12,7 @@ void del_at_end();
 void del_at_pos();
 void sort();
 void find();
+void rev();
 struct node
 {
 int data;
@@ -36,7 +37,8 @@ printf("8. deletion at end\n");
 printf("9. deletion at specific position\n");
 printf("10. sort\n");
 printf("11. find\n");
-printf("12. exit\n");
+printf("12. reverse\n");
+printf("13. exit\n");
 printf("enter your choice=\n");
 scanf("%d",&c);
 switch(c)
@@ -76,6 +78,9 @@ case 11:
 find();
 break;
 case 12:
+rev();
+break;
+case 13:
 exit(0);
 default:
 printf("wrong choice");
@@ -299,4 +304,24 @@ else
 printf("not found");
 }
 }
-
+void rev()
+{
+struct node *cur,*pre;
+if(root==NULL)
+printf("list is empty");
+else
+{
+pre=root;
+root=root->link;
+cur=root;
+pre->link=NULL;
+while(root!=NULL)
+{
+root=root->link;
+cur->link=pre;
+pre=cur;
+cur=root;
+}
+root=pre;
+}
+}
